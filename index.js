@@ -24,17 +24,19 @@ let updateCount = 0;
 //   }
 
   function draw() {
-    var canvas = document.getElementById('canvas');
-    if (canvas.getContext) {
-      var ctx = canvas.getContext('2d');
-  
-      ctx.beginPath();
-      ctx.moveTo(75, 50);
-      ctx.lineTo(100, 75);
-      ctx.lineTo(100, 25);
-      ctx.fill();
+      context.beginPath();
+      context.moveTo(50, 0);
+      context.lineTo(60, 15);
+      context.lineTo(75, 25)
+      context.lineTo(65, 35);
+      context.lineTo(75, 50);
+      context.lineTo(50, 35);
+      context.lineTo(35, 50);
+      context.lineTo(45, 25);
+      context.lineTo(35, 15);
+      context.lineTo(45, 10);
+      context.fill();
     }
-  }
 
 draw();
 
