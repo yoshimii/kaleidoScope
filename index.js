@@ -11,17 +11,38 @@ const offset = 50;//Action speed
 let updateCount = 0;
 
 //Let's Get Into Shapes!//This is where I stop to read MDN
+// Draws two squares and clears one
+// function draw() {
+//     var canvas = document.getElementById('canvas');
+//     if (canvas.getContext) {
+//       var ctx = canvas.getContext('2d');
+  
+//       ctx.fillRect(25, 25, 100, 100);
+//       ctx.clearRect(45, 45, 60, 60);
+//       ctx.strokeRect(50, 50, 50, 50);
+//     }
+//   }
 
-function draw() {
+  function draw() {
     var canvas = document.getElementById('canvas');
     if (canvas.getContext) {
       var ctx = canvas.getContext('2d');
   
-      ctx.fillRect(25, 25, 100, 100);
-      ctx.clearRect(45, 45, 60, 60);
-      ctx.strokeRect(50, 50, 50, 50);
+      ctx.beginPath();
+      ctx.moveTo(75, 50);
+      ctx.lineTo(100, 75);
+      ctx.lineTo(100, 25);
+      ctx.fill();
     }
   }
 
 draw();
+
+// Step 1: Create a path
+
+
+
+// Step 2: call methods that specify paths to be drawn
+
+// Optional Step 3: call closePath(); closes shape by drawing a straight line from the current point to the start.
 
