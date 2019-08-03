@@ -5,7 +5,7 @@ const size = 2;//appears to set size in pixels
 const gridHidth = 30;//sets pieces per row
 const gridHeight = 30;//sets pieces per column
 const target = {x: 0, y: 0};//an object with a coordinate
-const startPos = {x: 0, y: 0};//an object with a coordinate
+const startPos = {x: 50, y: 10};//an object with a coordinate
 const colors =["#8bf0ba", "#0e0fed", "#f2b1d8", "magenta", "blue"];
 const offset = 50;//Action speed
 let updateCount = 0;
@@ -23,18 +23,20 @@ let updateCount = 0;
 //     }
 //   }
 
+// for (let i = 0; i< )
   function draw() {
-      context.beginPath();
-      context.moveTo(50, 0);
-      context.lineTo(60, 15);
-      context.lineTo(75, 25)
-      context.lineTo(65, 35);
-      context.lineTo(75, 50);
-      context.lineTo(50, 35);
+      context.beginPath();//initialize drawing
+      context.moveTo(startPos.x, startPos.y);//moves pen to drawing start point
+      context.lineTo(60, 30);//draws line from previous point to this point
+      context.lineTo(80, 30)
+      context.lineTo(65, 50);
+      context.lineTo(70, 70);
+      context.lineTo(50, 60);
+      context.lineTo(30, 70);
       context.lineTo(35, 50);
-      context.lineTo(45, 25);
-      context.lineTo(35, 15);
-      context.lineTo(45, 10);
+      context.lineTo(20, 30);
+      context.lineTo(40, 30);
+      context.lineTo(50, 10);
       context.fill();
     }
 
