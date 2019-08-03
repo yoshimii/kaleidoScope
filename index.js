@@ -10,14 +10,22 @@ const colors =["#8bf0ba", "#0e0fed", "#f2b1d8", "magenta", "blue"];
 const offset = 50;//Action speed
 let updateCount = 0;
 
-context.globalAlpha = 0.6;//makes pieces transparent
+context.globalAlpha = 0.6;//makes pieces 
 
-const init = function(){
+
+
+const init = function () {
+
+    context.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    context.beginPath();
+    context.arc(0,0,60,0, Math.PI*2, true);
+
 
 }
 
 // Draws a five pointed star
  function draw() {
+    context.fillStyle = 'rgb(255, 217, 16)';
       context.beginPath();// Starts a new shape path
       context.moveTo(startPos.x, startPos.y);//moves pen to drawing start point
       context.lineTo(60, 30);//draws line from previous point to this point
@@ -31,35 +39,12 @@ const init = function(){
       context.lineTo(40, 30);
       context.lineTo(50, 10);
       context.fill();
+    
+      
     }
 
-    function draw() {
-        var canvas = document.getElementById('canvas');
-        if (canvas.getContext) {
-          var ctx = canvas.getContext('2d');
-      
-          for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 3; j++) {
+    
 
-                ctx.fillStyle = 'rgb(255, 217, 16)';
-              ctx.beginPath();
-              var x = 25 + j * 50; // x coordinate
-              var y = 25 + i * 50; // y coordinate
-              var radius = 20; // Arc radius
-              var startAngle = 0; // Starting point on circle
-              var endAngle = Math.PI + (Math.PI * j) / 2; // End point on circle
-              var anticlockwise = i % 2 !== 0; // clockwise or anticlockwise
-      
-              ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
-      
-                
-                    ctx.fill();
-               
-              }
-            }
-          }
-        }
-      
 
 
 draw();
