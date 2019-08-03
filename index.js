@@ -10,22 +10,15 @@ const colors =["#8bf0ba", "#0e0fed", "#f2b1d8", "magenta", "blue"];
 const offset = 50;//Action speed
 let updateCount = 0;
 
-//Let's Get Into Shapes!//This is where I stop to read MDN
-// Draws two squares and clears one
-// function draw() {
-//     var canvas = document.getElementById('canvas');
-//     if (canvas.getContext) {
-//       var ctx = canvas.getContext('2d');
-  
-//       ctx.fillRect(25, 25, 100, 100);
-//       ctx.clearRect(45, 45, 60, 60);
-//       ctx.strokeRect(50, 50, 50, 50);
-//     }
-//   }
+context.globalAlpha = 0.6;//makes pieces transparent
 
-// for (let i = 0; i< )
-  function draw() {
-      context.beginPath();//initialize drawing
+const init = function(){
+
+}
+
+// Draws a five pointed star
+ function draw() {
+      context.beginPath();// Starts a new shape path
       context.moveTo(startPos.x, startPos.y);//moves pen to drawing start point
       context.lineTo(60, 30);//draws line from previous point to this point
       context.lineTo(80, 30)
@@ -39,6 +32,35 @@ let updateCount = 0;
       context.lineTo(50, 10);
       context.fill();
     }
+
+    function draw() {
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+      
+          for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 3; j++) {
+
+                ctx.fillStyle = 'rgb(255, 217, 16)';
+              ctx.beginPath();
+              var x = 25 + j * 50; // x coordinate
+              var y = 25 + i * 50; // y coordinate
+              var radius = 20; // Arc radius
+              var startAngle = 0; // Starting point on circle
+              var endAngle = Math.PI + (Math.PI * j) / 2; // End point on circle
+              var anticlockwise = i % 2 !== 0; // clockwise or anticlockwise
+      
+              ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+      
+                
+                    ctx.fill();
+               
+              }
+            }
+          }
+        }
+      
+
 
 draw();
 
