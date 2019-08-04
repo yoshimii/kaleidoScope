@@ -1,5 +1,5 @@
-const view = document.getElementById("canvas");
-const context = view.getContext("2d");//Retrieves the 2d rendering context
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");//Retrieves the 2d rendering context
 const shapes = [];
 const size = 2;//appears to set size in pixels
 const gridHidth = 30;//sets pieces per row
@@ -10,57 +10,69 @@ const colors =["#8bf0ba", "#0e0fed", "#f2b1d8", "magenta", "blue"];
 const offset = 50;//Action speed
 let updateCount = 0;
 
-context.globalAlpha = 0.6;//makes pieces 
+context.globalAlpha = 0.6;//makes pieces transparent
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;// 
+canvas.height = window.innerHeight;//
 
-function draw() {
-    var ctx = document.getElementById('canvas').getContext('2d');
-    ctx.fillRect(0, 0, 1500, 1500);
-    ctx.translate(canvas.width/2, canvas.height/2);
+context.fillRect(0, 0, 1500, 1500); // Creates a canvas of 1500px x 1500px
+context.translate(canvas.width/2, canvas.height/2);
+
+function init() {
+    kaleidoscopeWindow();
+}
+
+
+function kaleidoscopeWindow() {   
   
     // Create a circular clipping path
-    ctx.beginPath();
-    ctx.arc(0, 0, 60, 0, Math.PI * 2, true);
-    ctx.clip();
+    context.beginPath();
+    context.arc(0, 0, 125, 0, Math.PI * 2, true);
+    context.clip();
   
-    // draw background
-    var lingrad = ctx.createLinearGradient(0, -75, 0, 75);
+    // Draw pretty background gradient
+    var lingrad = context.createLinearGradient(0, -75, 0, 75);
     lingrad.addColorStop(0, 'magenta');
     lingrad.addColorStop(1, 'peachpuff');
     
-    ctx.fillStyle = lingrad;
-    ctx.fillRect(-75, -75, 150, 150);
-  
+    context.fillStyle = lingrad;
+    context.fillRect(-175, -175, 350, 350);
+
+    context.beginPath();
+    context.fillRect(canvas.width/2, canvas.height/2, 15, 15);
+    context.fillStyle = 'blue';
+}
     // draw stars
-    for (var j = 1; j < 50; j++) {
-      ctx.save();
-      ctx.fillStyle = '#8bf0ba';
-      ctx.translate(75 - Math.floor(Math.random() * 150),
-                    75 - Math.floor(Math.random() * 150));
-      drawStar(ctx, Math.floor(Math.random() * 9) + 2);
-      ctx.restore();
-    }
+    // for (var j = 1; j < 50; j++) {
+    //   ctx.save();
+    //   ctx.fillStyle = '#8bf0ba';
+    //   ctx.translate(75 - Math.floor(Math.random() * 250),
+    //                 75 - Math.floor(Math.random() * 250));
+    //   drawStar(ctx, 10);
+    //   ctx.restore();
+
+    //   ctx.rotate(185);
+    // }
     
-  }
   
-  function drawStar(ctx, r) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.moveTo(r, 0);
-    for (var i = 0; i < 9; i++) {
-      ctx.rotate(Math.PI / 5);
-      if (i % 2 === 0) {
-        ctx.lineTo((r / 0.525731) * 0.200811, 0);
-      } else {
-        ctx.lineTo(r, 0);
-      }
-    }
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
-  }
+  
+//   function drawStar(ctx, r) {
+//     ctx.save();
+//     ctx.beginPath();
+//     ctx.moveTo(r, 0);
+//     for (var i = 0; i < 9; i++) {
+//       ctx.rotate(Math.PI / 5);
+//       if (i % 2 === 0) {
+//         ctx.lineTo((r / 0.525731) * 0.200811, 0);
+//       } else {
+//         ctx.lineTo(r, 0);
+//       }
+//     }
+//     ctx.closePath();
+//     ctx.fill();
+//     ctx.restore();
+//   }
+
 
 
 // Draws a five pointed star
@@ -84,7 +96,7 @@ function draw() {
 //     }
 
  
-draw();
+
 init();
 
 // Step 1: Create a path
